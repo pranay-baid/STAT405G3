@@ -1,0 +1,5 @@
+# words.dag
+
+# PRE script
+JOB PRE pre.sh
+SCRIPT PRE shakespeare.tar
