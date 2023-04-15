@@ -1,5 +1,23 @@
-# words.dag
+# pre-processing job
+JOB A pre.sh
+SCRIPT PRE A PRE.sh
+RETRY A 3
 
-# PRE script
-JOB PRE pre.sh
-SCRIPT PRE shakespeare.tar
+# processing jobs
+JOB B process_file.sh
+SCRIPT PRE B HTCondor.sub $(JOBID)
+SCRIPT POST B POST.sh $(JOBID)
+RETRY B 3
+
+# post-processing job
+JOB C post.sh
+SCRIPT PRE C POST.sh
+RETRY C 3
+
+# dependencies
+PARENT A CHILD B1 B2 B3 B4 B5
+PARENT B1 B C
+PARENT B2 B C
+PARENT B3 B C
+PARENT B4 B C
+PARENT B5 B C

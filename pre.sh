@@ -1,15 +1,11 @@
 #!/bin/bash
-set -e
 
-# Define variables
-CHUNK_SIZE=5
-
-# Download and extract Shakespeare data
-wget https://pages.stat.wisc.edu/~jgillett/DSCP/CHTC/wordCounting/shakespeare.tar -O shakespeare.tar
+# Download and extract the shakespeare.tar file
+wget https://pages.stat.wisc.edu/~jgillett/DSCP/CHTC/wordCounting/shakespeare.tar
 tar -xf shakespeare.tar
 
-# Concatenate all the plays into one file
-cat shakespeare/* > all_plays.txt
+# Concatenate all the plays into one large file
+cat shakespeare/* > shakespeare_all.txt
 
-# Split the large file into smaller chunks
-split -n l/$CHUNK_SIZE all_plays.txt chunk_
+# Break the large file into 5 smaller files
+split -n 5 shakespeare_all.txt shakespeare_chunk_
