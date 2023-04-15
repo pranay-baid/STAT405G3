@@ -1,0 +1,13 @@
+executable = words.sh
+arguments = $(chunk)
+output = words_$(chunk).out
+error = words_$(chunk).err
+log = words.log
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
++MaxRuntime = 1800
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = shakespeare/chunk_$(chunk)
+queue chunk from 1 to 5
