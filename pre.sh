@@ -5,7 +5,7 @@ set -e
 CHUNK_SIZE=5
 
 # Download and extract Shakespeare data
-wget https:/https://pages.stat.wisc.edu/~jgillett/DSCP/CHTC/wordCounting/shakespeare.tar -O shakespeare.tar
+wget https://pages.stat.wisc.edu/~jgillett/DSCP/CHTC/wordCounting/shakespeare.tar -O shakespeare.tar
 tar -xf shakespeare.tar
 
 # Concatenate all the plays into one file
